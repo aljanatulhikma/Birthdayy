@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Selamat Ulang Tahun, Justin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= LOADING SCREEN ================= -->
+<div id="loading-screen">
+  <div class="loading-stars" id="loadingStars"></div>
+  <div class="loading-content">
+    <p class="loading-brand">WAYNE ENTERPRISES</p>
+    <p class="loading-line" id="loadingLine">Connecting to Batcave...</p>
+    <div class="loading-bar-track">
+      <div class="loading-bar-fill" id="loadingBarFill"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= BACKGROUND EFFECTS (GLOBAL) ================= -->
+<canvas id="rain-canvas"></canvas>
+<div class="stars-layer" id="starsLayer"></div>
+<div class="fog-layer"></div>
+<div class="mouse-glow" id="mouseGlow"></div>
+<div class="gotham-skyline"></div>
+
+<!-- ================= MUSIC PLAYER ================= -->
+<div class="music-player" id="musicPlayer">
+  <button class="music-toggle" id="musicToggle" aria-label="Play/Pause musik">
+    <svg id="iconPlay" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+    <svg id="iconPause" viewBox="0 0 24 24" width="18" height="18" style="display:none"><path fill="currentColor" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+  </button>
+  <div class="music-info">
+    <div class="music-eq" id="musicEq"><span></span><span></span><span></span><span></span></div>
+    <div class="music-text">
+      <p class="music-title">Our Song</p>
+      <div class="music-progress-track" id="progressTrack">
+        <div class="music-progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+  </div>
+  <div class="music-volume">
+    <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+    <input type="range" id="volumeSlider" min="0" max="100" value="60">
+  </div>
+</div>
+<audio id="bgMusic" src="music/birthday.mp3" loop preload="auto"></audio>
+
+<div class="autoplay-popup" id="autoplayPopup">
+  <p>Klik untuk memutar lagu kita ❤️</p>
+</div>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main id="mainContent">
+
+  <!-- ================= HOME / HERO ================= -->
+  <section class="page hero-page" id="home">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Untuk kamu, di hari spesial ini</p>
+      <h1 class="hero-title">Happy Birthday<br>Sayangku <span class="hero-name">Justin</span> ❤️</h1>
+      <p class="hero-subtitle">"Website ini mungkin tidak sempurna. Tapi setiap halaman di dalamnya dibuat dengan penuh cinta."</p>
+      <button class="btn-gold" id="enterBtn">Buka Ceritanya</button>
+    </div>
+    <div class="scroll-hint">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- ================= CERITA - SELANG-SELING FOTO & TEKS ================= -->
+  <section class="page story-rows-page" id="storyRows">
+    <h2 class="section-title reveal">Cerita Kita</h2>
+    <div class="story-rows-container">
+
+      <div class="story-row reveal">
+        <div class="story-row-photo"><img data-slot="1" src="images/1.jpg" alt="Kenangan 1" onerror="this.parentElement.style.display='none'"></div>
+        <div class="story-row-text">
+          <span class="bat-icon">🦇</span>
+          <p>Ini pertama kali kita ketemu, abis Diksar. Waktu itu masih canggung, masih asing, sama sekali belum kepikiran bakal jadi sejauh ini.</p>
+        </div>
+      </div>
+
+      <div class="story-row reverse reveal">
+        <div class="story-row-photo"><img data-slot="2" src="images/2.jpg" alt="Kenangan 2" onerror="this.parentElement.style.display='none'"></div>
+        <div class="story-row-text">
+          <span class="bat-icon">🦇</span>
+          <p>Awalnya aku yang chat kamu duluan. Modal nanya hal receh doang, eh ternyata jadi keterusan sampai sekarang.</p>
+        </div>
+      </div>
+
+      <div class="story-row reveal">
+        <div class="story-row-photo"><img data-slot="3" src="images/3.jpg" alt="Kenangan 3" onerror="this.parentElement.style.display='none'"></div>
+        <div class="story-row-text">
+          <span class="bat-icon">🦇</span>
+          <p>17 Agustus, di PTC. Hari yang bikin kita resmi jadi "kita". Aku masih inget banget gimana gugupnya kamu waktu itu.</p>
+        </div>
+      </div>
+
+      <div class="story-row reverse reveal">
+        <div class="story-row-photo"><img data-slot="4" src="images/4.jpg" alt="Kenangan 4" onerror="this.parentElement.style.display='none'"></div>
+        <div class="story-row-text">
+          <span class="bat-icon">🦇</span>
+          <p>Selfie random kayak gini yang bikin galeri HP-ku penuh sama kamu. Gapapa, aku emang suka.</p>
+        </div>
+      </div>
+
+      <div class="story-row reveal">
+        <div class="story-row-photo"><img data-slot="5" src="images/5.jpg" alt="Kenangan 5" onerror="this.parentElement.style.display='none'"></div>
+        <div class="story-row-text">
+          <span class="bat-icon">🦇</span>
+          <p>Foto mirror receh kayak gini pun tetap aku simpan baik-baik. Soalnya setiap momen sama kamu itu berharga buat aku.</p>
+        </div>
+      </div>
+
+      <div class="story-row reverse reveal">
+        <div class="story-row-photo"><img data-slot="6" src="images/6.jpg" alt="Kenangan 6" onerror="this.parentElement.style.display='none'"></div>
+        <div class="story-row-text">
+          <span class="bat-icon">🦇</span>
+          <p>Kalau difoto berdiri berdua kayak gini, rasanya pengen difoto terus. Nggak pernah bosen liat kamu di samping aku.</p>
+        </div>
+      </div>
+
+      <div class="story-row reveal">
+        <div class="story-row-photo"><img data-slot="7" src="images/7.jpg" alt="Kenangan 7" onerror="this.parentElement.style.display='none'"></div>
+        <div class="story-row-text">
+          <span class="bat-icon">🦇</span>
+          <p>Kita pernah ada di titik susah, sempat jauh, sempat diam-diaman. Tapi kita balik lagi, dan itu yang paling penting.</p>
+        </div>
+      </div>
+
+      <div class="story-row reverse reveal">
+        <div class="story-row-photo"><img data-slot="8" src="images/8.jpg" alt="Kenangan 8" onerror="this.parentElement.style.display='none'"></div>
+        <div class="story-row-text">
+          <span class="bat-icon">🦇</span>
+          <p>Sekarang kita lebih dewasa, lebih ngerti satu sama lain. Makasih udah bertahan sama aku sampai sejauh ini, Bub.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= VIDEO SECTION ================= -->
+  <section class="page video-page" id="videoSection">
+    <h2 class="section-title reveal">Video Kenangan</h2>
+    <p class="section-subtitle reveal">Gulir ke bawah untuk lihat video-videonya.</p>
+    <div class="video-stack" id="videoStack"></div>
+  </section>
+
+  <!-- ================= CERITA - PENUTUP ================= -->
+  <section class="page story-page" id="storyClosing">
+    <div class="story-text reveal">
+      <span class="chapter-label">Sebelum Lanjut</span>
+      <p>Ini baru sepotong kecil dari cerita kita. Masih banyak yang pengen aku ceritain, tapi biar sisanya kamu baca sendiri di surat berikutnya ya. Selamat membaca, Bub.</p>
+    </div>
+  </section>
+
+  <!-- ================= GALERI ================= -->
+  <section class="page gallery-page" id="gallery">
+    <h2 class="section-title reveal">Galeri Kenangan</h2>
+    <p class="section-subtitle reveal">Setiap foto punya cerita. Sentuh untuk melihat lebih besar.</p>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </section>
+
+  <!-- ================= LIGHTBOX ================= -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev">❮</button>
+    <img id="lightboxImg" src="" alt="Foto kenangan">
+    <button class="lightbox-nav lightbox-next" id="lightboxNext">❯</button>
+  </div>
+
+  <!-- ================= SURAT ================= -->
+  <section class="page letter-page" id="letter">
+    <h2 class="section-title reveal">Surat Untuk Justin</h2>
+    <div class="letter-paper reveal">
+      <h3 class="letter-title" id="letterTitle">Untuk Bub, Lelaki yang Selalu Menjadi Tempat Pulangku</h3>
+      <div class="letter-body" id="letterBody">
+
+        <p>Bub,</p>
+
+        <p>Aku sempat bingung harus mulai dari mana. Rasanya banyak sekali yang ingin aku ceritakan, tapi setiap kali mulai mengetik, aku malah senyum sendiri sambil mengingat semua yang sudah kita lewati. Siapa sangka, dari pertemuan yang kelihatannya biasa saja, ternyata Tuhan sedang mempertemukan aku dengan seseorang yang sekarang jadi bagian penting dalam hidupku.</p>
+
+        <p>Kalau mengingat awal kita kenal, rasanya lucu. Waktu itu kita sama-sama baru selesai Diksar atau Ospek di Jasdam tahun 2025. Kita cuma sama-sama ada di satu grup, belum saling kenal, belum pernah ngobrol, bahkan mungkin tidak pernah berpikir kalau suatu hari nanti kita akan sedekat ini. Aku juga nggak tahu kenapa akhirnya aku yang lebih dulu memberanikan diri chat kamu. Awalnya cuma mau tanya sesuatu, sesederhana itu. Tapi ternyata dari chat sederhana itu, semuanya pelan-pelan berubah.</p>
+
+        <p>Dari yang awalnya cuma saling balas pesan seperlunya, lama-lama jadi sering ngobrol. Obrolannya juga nggak selalu penting, kadang cuma cerita hal-hal kecil tentang hari yang kita jalani. Anehnya, dari obrolan yang sederhana itu aku mulai merasa nyaman. Aku nggak pernah sadar kapan tepatnya rasa itu muncul. Yang aku tahu, semakin sering ngobrol sama kamu, semakin sering juga aku menunggu notifikasi dari kamu. Dan mungkin, tanpa kita sadari, saat itu kita sama-sama sedang berjalan menuju cerita yang sekarang kita jalani.</p>
+
+        <p>Lalu datang hari yang sampai sekarang masih aku ingat dengan jelas, 17 Agustus. Hari ketika kamu menyatakan perasaanmu di PTC. Jujur, aku masih sering senyum sendiri kalau mengingat hari itu. Dari sekian banyak hari yang pernah aku lewati, hari itu jadi salah satu hari yang paling berkesan buatku. Bukan karena tempatnya atau suasananya, tapi karena sejak hari itu semuanya berubah. Dari yang awalnya cuma teman ngobrol, kita memilih untuk saling menjaga satu sama lain.</p>
+
+        <p>Terima kasih ya, Bub, karena selama ini sudah menjadi seseorang yang selalu berusaha ada buat aku. Ada banyak hal yang mungkin menurut kamu biasa saja, tapi buat aku justru hal-hal kecil itulah yang paling berarti. Salah satunya adalah saat kamu selalu mau menunggu aku pulang kuliah. Mungkin buat orang lain itu cuma menunggu beberapa menit atau beberapa jam. Tapi buat aku, itu adalah bentuk perhatian yang nggak semua orang bisa lakukan dengan tulus.</p>
+
+        <p>Dan yang paling aku suka, setiap kali aku datang, kamu selalu menyambut aku dengan senyum manis itu. Senyum yang sederhana, tapi entah kenapa selalu berhasil bikin capekku hilang. Kadang aku berpikir, mungkin kamu nggak sadar kalau senyum itu punya pengaruh sebesar itu buat aku. Rasanya semua rasa lelah setelah kuliah seharian langsung berubah jadi rasa senang hanya karena melihat kamu sudah menunggu di sana.</p>
+
+        <p>Aku juga bersyukur punya kamu yang selalu mau menemani aku ke mana pun. Terima kasih karena sudah sabar menghadapi sifatku yang kadang susah dimengerti. Terima kasih karena tetap bertahan meskipun aku juga sering keras kepala. Aku tahu aku bukan orang yang sempurna. Aku masih sering ngambek, masih sering diam kalau lagi kesal, kadang juga bikin kamu bingung harus bersikap bagaimana. Tapi di balik semua itu, aku selalu merasa tenang karena kamu tetap memilih untuk bertahan.</p>
+
+        <p>Yang membuat aku semakin bangga sama kamu bukan cuma karena kamu baik atau sabar. Aku bangga karena kamu selalu berusaha menjadi laki-laki yang lebih baik. Aku bangga karena kamu rajin beribadah. Aku bangga karena kamu nggak pernah malu memperkenalkan aku sebagai pacarmu. Hal-hal seperti itu mungkin terlihat sederhana, tapi justru dari situlah aku merasa dihargai dan disayangi.</p>
+
+        <p>Kalau boleh jujur, aku bukan tipe orang yang gampang mengungkapkan semua yang aku rasakan. Kadang aku lebih sering menyimpannya sendiri. Tapi lewat website ini aku ingin kamu tahu satu hal, bahwa kehadiranmu benar-benar membawa banyak warna dalam hidupku. Terima kasih sudah menjadi tempat aku bercerita, tempat aku mengeluh, tempat aku tertawa, dan tempat aku merasa pulang.</p>
+
+        <p>Aku nggak pernah tahu apa yang akan terjadi di masa depan. Tapi yang aku tahu, aku benar-benar bersyukur karena Tuhan mempertemukan aku dengan kamu. Dari sekadar chat sederhana, kita bisa sampai sejauh ini. Buat orang lain mungkin cerita kita biasa saja, tapi buat aku, cerita ini adalah salah satu bagian paling berharga dalam hidupku.</p>
+
+        <p>Kalau dipikir-pikir lagi, hubungan kita juga nggak selalu berjalan mulus. Kita pernah marah, pernah sama-sama keras kepala, pernah saling diam, bahkan pernah memilih untuk berpisah. Jujur, itu jadi salah satu masa yang paling berat buat aku. Waktu itu aku sempat berpikir, mungkin cerita kita benar-benar selesai.</p>
+
+        <p>Aku masih ingat waktu aku ngajak kamu nonton. Aku udah senang banget sampai beli tiketnya. Di pikiranku, kita bakal menghabiskan waktu bersama seperti biasanya. Tapi ternyata rencana itu batal. Saat itu aku kecewa, bukan karena filmnya, tapi karena aku merasa harapanku ikut hilang. Setelah itu semuanya terasa semakin jauh. Sampai akhirnya kamu memblokir semua media sosial aku. Rasanya campur aduk. Sedih, marah, kecewa, bingung. Aku bahkan nggak tahu harus berbuat apa lagi.</p>
+
+        <p>Tapi sekarang, saat melihat ke belakang, aku sadar kalau mungkin semua itu memang bagian dari perjalanan kita. Kita sama-sama masih belajar. Belajar memahami satu sama lain, belajar mengendalikan ego, belajar kalau hubungan nggak selalu berisi tawa dan kebahagiaan. Kadang ada air mata, ada salah paham, ada kecewa. Dan ternyata semua itu justru membuat kita menjadi lebih dewasa.</p>
+
+        <p>Aku bersyukur karena kita nggak berhenti di masa sulit itu. Aku bersyukur karena kita memilih untuk memperbaiki semuanya, bukan benar-benar menyerah. Dari situ aku melihat banyak perubahan dari diri kamu. Hal kecil yang mungkin orang lain nggak sadar, tapi aku sadar. Sekarang kalau mau ngajak aku jalan, kamu memilih menabung dulu. Mungkin buat orang lain itu biasa saja, tapi buat aku itu menunjukkan kalau kamu mulai memikirkan banyak hal. Kamu mulai belajar bertanggung jawab, dan itu membuat aku semakin bangga.</p>
+
+        <p>Terima kasih ya, Bub, karena selalu berusaha menjadi versi terbaik dari dirimu. Terima kasih karena tetap mau bertahan menghadapi sifatku yang kadang menyebalkan. Terima kasih karena tetap sabar ketika aku lagi banyak pikiran. Terima kasih karena selalu ada, selalu mau mendengarkan cerita-ceritaku, dan selalu membuat aku merasa kalau aku nggak sendirian.</p>
+
+        <p>Kalau boleh jujur, aku sering bangga sama kamu, bahkan untuk hal-hal yang mungkin menurutmu sederhana. Aku bangga melihat kamu berusaha mengejar cita-citamu. Aku bangga melihat kamu terus belajar menjadi lebih baik. Aku bangga karena kamu nggak pernah berhenti mencoba, walaupun hidup kadang nggak berjalan sesuai rencana. Aku tahu kamu punya banyak mimpi yang sering kamu ceritakan ke aku. Percayalah, aku selalu mendoakan semuanya. Aku berharap satu per satu mimpi itu bisa terwujud. Aku ingin melihat kamu tersenyum bangga saat berhasil mencapainya.</p>
+
+        <p>Aku juga ingin kamu tahu satu hal. Terima kasih karena sudah menjadi seseorang yang membuat aku merasa dicintai. Terima kasih karena sudah menerima aku apa adanya, dengan semua kekurangan, rasa takut, dan sifat keras kepalaku. Aku memang belum sempurna, dan mungkin masih sering membuatmu kesal. Tapi percayalah, aku selalu berusaha menjadi pasangan yang lebih baik untuk kamu, sama seperti kamu yang selalu berusaha menjadi laki-laki yang lebih baik setiap harinya.</p>
+
+        <p>Website ini mungkin bukan hadiah yang paling mahal. Bahkan mungkin tampilannya masih jauh dari sempurna. Tapi di balik setiap halaman, setiap foto, setiap tulisan, ada waktu, usaha, dan rasa sayang yang aku kumpulkan sedikit demi sedikit. Aku ingin kamu tahu kalau hadiah ini dibuat khusus untuk kamu. Karena aku ingin memberikan sesuatu yang bisa kamu buka kapan pun, terutama saat kamu sedang lelah, sedang ragu pada diri sendiri, atau sekadar ingin mengingat perjalanan kita.</p>
+
+        <p>Kalau suatu hari nanti hidup terasa berat, kalau suatu hari nanti kamu merasa gagal, atau merasa tidak cukup baik, aku harap kamu ingat bahwa selalu ada satu orang yang percaya sama kamu. Satu orang yang selalu bangga sama setiap proses yang kamu jalani, bukan hanya saat kamu berhasil. Orang itu adalah aku.</p>
+
+        <p>Aku nggak bisa menjanjikan kalau perjalanan kita nanti akan selalu mudah. Mungkin akan ada masalah baru, akan ada salah paham lagi, dan mungkin kita akan sama-sama belajar lebih banyak lagi. Tapi aku berharap, apa pun yang terjadi, kita selalu memilih untuk saling mendengarkan, saling mengingatkan, dan saling menggenggam tangan, bukan saling melepaskan.</p>
+
+        <p>Terakhir, selamat ulang tahun, Bub. Semoga di usia yang baru ini kamu selalu diberi kesehatan, kebahagiaan, ketenangan hati, dan dimudahkan dalam setiap langkahmu. Semoga semua doa yang kamu simpan dalam diam, semua usaha yang kamu lakukan, dan semua mimpi yang pernah kamu ceritakan bisa terwujud satu per satu.</p>
+
+        <p>Terima kasih karena sudah hadir di hidupku. Terima kasih karena sudah menjadi Muhammad Fikri yang aku kenal hari ini. Dan terima kasih karena, dari sekian banyak orang di dunia ini, kamu memilih untuk berjalan bersamaku.</p>
+
+        <p>Aku bangga punya kamu.</p>
+
+        <p class="letter-signoff">Dengan penuh sayang,<br><span class="letter-signature">Bos</span> ❤️</p>
+
+      </div>
+    </div>
+    <p class="letter-quote" id="letterQuote">Terima kasih sudah hadir di hidupku.</p>
+  </section>
+
+  <!-- ================= UCAPAN ULANG TAHUN ================= -->
+  <section class="page wish-page" id="wish">
+    <div class="wish-content reveal">
+      <span class="chapter-label">Untuk Hari Ini</span>
+      <h2 class="wish-title">Ucapan Untuk Justin</h2>
+      <p class="wish-text">Selamat ulang tahun, Bub. Semoga setiap langkah yang kamu ambil di usia baru ini selalu dimudahkan. Semoga kamu selalu sehat, selalu dikelilingi orang-orang yang menyayangimu, dan semoga hati kamu selalu tenang meskipun dunia kadang terasa berat.</p>
+      <p class="wish-text">Terima kasih sudah bertahan sejauh ini, bersama aku maupun untuk dirimu sendiri. Aku akan selalu ada, menonton dari dekat, ikut bangga di setiap pencapaianmu, sekecil apa pun itu. Selamat menempuh satu tahun baru dalam hidupmu, Bub. Aku menyayangimu, hari ini dan seterusnya.</p>
+    </div>
+  </section>
+
+  <!-- ================= ENDING ================= -->
+  <section class="page ending-page" id="ending">
+    <div class="ending-lines" id="endingLines">
+      <p class="ending-line" data-order="1">Kalau suatu hari nanti kamu lupa seberapa berharganya dirimu...</p>
+      <p class="ending-line" data-order="2">...buka lagi website ini.</p>
+      <p class="ending-line" data-order="3">Karena akan selalu ada seseorang...</p>
+      <p class="ending-line" data-order="4">...yang bangga memiliki kamu.</p>
+    </div>
+    <div class="ending-final" id="endingFinal">
+      <h2 class="ending-happy">Happy Birthday Justin ❤️</h2>
+      <p class="ending-thanks">Terima kasih sudah menjadi bagian dari hidupku.</p>
+      <p class="ending-love">Love,<br><span>Bos</span></p>
+      <button class="btn-gold btn-replay" id="replayBtn">Buka Lagi Dari Awal</button>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
